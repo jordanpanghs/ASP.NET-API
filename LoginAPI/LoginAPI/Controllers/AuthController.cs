@@ -1,6 +1,4 @@
 ﻿using LoginAPI.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -35,7 +33,7 @@ namespace LoginAPI.Controllers
         [HttpPost("login")]
         public ActionResult<User> Login(UserDto request)
         {
-            if(user.Username != request.Username)
+            if (user.Username != request.Username)
             {
                 return BadRequest("User not found.");
             }
